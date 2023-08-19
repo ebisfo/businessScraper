@@ -1,0 +1,240 @@
+from urllib.request import urlopen
+from selenium import webdriver
+import numpy
+from bs4 import BeautifulSoup
+import pandas as pd
+from selenium.webdriver.common.keys import Keys
+import time
+import requests
+
+def login():
+    login = driver.find_element_by_class_name('hcpl-remote-auth-ajax-barcode')
+
+    login.click()
+    login.send_keys('GET YOUR OWN KEY')
+
+    password = driver.find_element_by_class_name('hcpl-remote-auth-ajax-password')
+    password.click()
+    password.send_keys('GET YOUR OWN PASSWORD')
+
+    clickbuttonsubmit = driver.find_element_by_class_name('hcpl-remote-auth-login')
+    clickbuttonsubmit.click()
+
+    # time.sleep(10)
+    # advancedsearch = driver.find_element_by_xpath('//*[@id="mdiv_deux_fab"]/div[2]/div/div[8]/div/span/a')
+    # advancedsearch.click()
+
+
+
+
+
+driver = webdriver.Edge()
+driver.get('http://hclibrary.org/research/remote-authentication/?resource=atoz')
+
+login()
+
+
+
+time.sleep(60)
+print('Ten Minutes Until Program Starts')
+time.sleep(60)
+print('Nine Minutes Until Program Starts')
+time.sleep(60)
+print('Eight Minutes Until Program Starts')
+time.sleep(60)
+print('Seven Minutes Until Program Starts')
+time.sleep(60)
+print('Six Minutes Until Program Starts')
+time.sleep(60)
+print('Five Minutes Until Program Starts')
+time.sleep(60)
+print('Four Minutes Until Program Starts')
+time.sleep(60)
+print('Three Minutes Until Program Starts')
+time.sleep(60)
+print('Two Minutes Until Program Starts')
+time.sleep(60)
+print('One Minutes Until Program Starts')
+
+
+
+
+
+# time.sleep(120) #input information
+#select all and start the process up to 25
+
+
+print("10 seconds until program starts")
+time.sleep(10)
+print('program starting')
+
+print('Business Overview:\n')
+
+
+
+page_source = driver.page_source
+bs = BeautifulSoup(page_source,'html.parser')
+
+
+
+
+
+
+for i in range(0,1000):
+    time.sleep(1)
+    page_source = driver.page_source
+    bs = BeautifulSoup(page_source,'html.parser')
+
+    print('\n')
+    print('\n')
+
+    print('Business Overview:\n')
+
+    portlet0 = bs.find('tbody').tr
+    for i in portlet0:
+        print(i.get_text())
+
+    print('\n')
+
+    portlet0 = bs.find('tbody').tr.next_siblings
+    for i in portlet0:
+        print(i.get_text())
+
+    print('\n')
+    print('Executives:\n')
+
+    portlet14 = bs.find('table', {'class':'detail-portlet-business'}).tr.next_siblings
+    for i in portlet14:
+        print(i.get_text())
+    print("___"*30)
+
+
+    time.sleep(3)
+
+    arrow = driver.find_element_by_xpath('//*[@id="span_next_button_upper"]')
+    arrow.click()
+
+    time.sleep(2)
+    #
+    #this code below does the same thing as above but using selenium
+    # print('\n')
+    # print('\n')
+    #
+    # print('Business Overview:\n')
+    #
+    # portlet0 = bs.find('tbody').tr
+    # for i in portlet0:
+    #     print(i.get_text())
+    #
+    # print('\n')
+    #
+    # portlet0 = bs.find('tbody').tr.next_siblings
+    # for i in portlet0:
+    #     print(i.get_text())
+    #
+    # print('\n')
+    # print('Executives:\n')
+    #
+    # portlet14 = bs.find('table', {'class':'detail-portlet-business'}).tr.next_siblings
+    # for i in portlet14:
+    #     print(i.get_text())
+    # print("___"*30)
+    #
+    # time.sleep(1)
+    #
+    # arrow = driver.find_element_by_xpath('//*[@id="span_next_button_upper"]')
+    # arrow.click()
+    #
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# get_textget_textseries = pd.Series(portlet_0,name='Overview')
+# series2 = pd.Series(portlet_14, name='Contacts')
+# df = pd.concat([series,series2],axis=1)
+#
+#
+#
+
+
+# df.to_excel('testscrape.xlsx',index=False)
+
+
+
+
+
+
+
+
+
+
+
+#this code takes care of beautiful soup****____********____********____
+
+# overview_element = driver.find_element_by_xpath('//*[@id="portlet_0"]')
+# demographic_element = driver.find_element_by_xpath('//*[@id="portlet_1"]')
+# executive_element = driver.find_element_by_xpath('//*[@id="portlet_14"]')
+#
+
+# overview = overview_element.text
+# demographics = demographic_element.text
+# businesspeople = executive_element.text
+
+
+# print(overview)
+# print('\n')
+# print(demographics)
+# print('\n')
+# print(businesspeople)
+
+
+
+
+#
+# bs = BeautifulSoup(elements,'html.parser')
+#
+# print(bs)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
